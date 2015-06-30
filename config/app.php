@@ -143,9 +143,10 @@ return [
         App\Providers\AppServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        'Illuminate\Html\HtmlServiceProvider',
-        'LucaDegasperi\OAuth2Server\Storage\FluentStorageServiceProvider',
-        'LucaDegasperi\OAuth2Server\OAuth2ServerServiceProvider',
+        Illuminate\Html\HtmlServiceProvider::class,
+        LucaDegasperi\OAuth2Server\Storage\FluentStorageServiceProvider::class,
+        LucaDegasperi\OAuth2Server\OAuth2ServerServiceProvider::class,
+        Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
 
     ],
 
@@ -194,9 +195,9 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
-        'Authorizer' => 'LucaDegasperi\OAuth2Server\Facades\Authorizer',
-        'Form'      => 'Illuminate\Html\FormFacade',
-        'HTML'      => 'Illuminate\Html\HtmlFacade',
+        'Authorizer' => LucaDegasperi\OAuth2Server\Facades\Authorizer::class,
+        'Form'      => Illuminate\Html\FormFacade::class,
+        'HTML'      => Illuminate\Html\HtmlFacade::class,
 
     ],
 
