@@ -15,12 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/data', function() {
-    $harga = ['200000', '250000', '300000', '350000', '400000', '450000', '500000'];
-    $i = 1;
-    echo $harga[$i - 1];
-});
-
 Route::post('oauth/access_token', function() {
     return Response::json(Authorizer::issueAccessToken());
 });
