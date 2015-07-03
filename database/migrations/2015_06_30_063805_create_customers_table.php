@@ -17,6 +17,7 @@ class CreateCustomersTable extends Migration
             $table->unsignedInteger('user_id');
             $table->string('fullname');
             $table->string('address');
+            $table->string('avatar');
             $table->unsignedInteger('kabupaten_id');
             $table->char('zip_code', 5);
             $table->char('sex');

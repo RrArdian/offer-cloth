@@ -14,4 +14,9 @@ class Brand extends Model
     {
     	return $this->belongsTo('App\User');
     }
+
+    public function products()
+    {
+    	return $this->hasMany('App\Http\Models\Product', 'brand_id');
+    }
 }

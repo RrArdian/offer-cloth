@@ -18,6 +18,7 @@ class CreateBrandsTable extends Migration
             $table->string('name');
             $table->string('address');
             $table->text('about');
+            $table->string('icon');
             $table->double('latitude', 15, 13);
             $table->double('longitude', 14, 11);
             $table->string('phone', 15);

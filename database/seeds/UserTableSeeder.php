@@ -9,7 +9,8 @@ class UserTableSeeder extends Seeder {
 		DB::table('users')->delete();
 
 		$data = array(
-			['id' => 1, 'name' => 'admin', 'email' => 'admin@promocloth.com', 'password' => '$2y$10$vGvkbvPVSDzvKo81FVwEQOrqlWvF4/7TGxX9qgXgz3GNwrxahErLK', 'created_at' => new DateTime, 'updated_at' => new DateTime],
+			['name' => 'admin', 'email' => 'admin@promocloth.com', 'password' => '$2y$10$vGvkbvPVSDzvKo81FVwEQOrqlWvF4/7TGxX9qgXgz3GNwrxahErLK', 'status' => 'active', 'created_at' => new DateTime, 'updated_at' => new DateTime],
+			['name' => 'itsrain', 'email' => 'me@itsrain.com', 'password' => Hash::make('itsrain'), 'status' => 'active', 'created_at' => new DateTime, 'updated_at' => new DateTime],
 		);
 		DB::table('users')->insert($data);
 	}

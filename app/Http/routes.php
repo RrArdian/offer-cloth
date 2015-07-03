@@ -19,6 +19,20 @@ Route::post('oauth/access_token', function() {
     return Response::json(Authorizer::issueAccessToken());
 });
 
-Route::get('/restrict', ['middleware' => 'oauth', function() {
-    return Response::json(['error' => false, 'data' => 'Helloo guys!']);
-}]);
+Route::group(['prefix' => 'api/v1/service', 'middleware' => 'client'], function () {
+    Route::get('brands', ['uses' => 'BrandController@index']);
+    Route::get('brands/{id}', ['uses' => 'BrandController@show']);
+    Route::get('brands', ['uses' => 'BrandController@search']);
+    Route::get('products', ['uses' => 'ProductController@index']);
+    Route::get('products/{id}', ['uses' => 'ProductController@show']);
+    Route::get('products', ['uses' => 'ProductController@search']);
+    Route::get('categories', ['uses' => 'CategoryController@index']);
+    Route::get('categories/{id}', ['uses' => 'CategoryController@show']);
+    Route::get('categories', ['uses' => 'CategoryController@search']);
+});
+
+Route::group(['prefix' => 'api/v1/service', 'middleware' => ['client', 'oauth']], function () {
+    Route::post('register', ['uses' => 'UserController@store']);
+    Route::post('activate', ['uses' => 'UserController@activate']);
+    Route::get('user/profil', ['uses' => 'UserController@profil']);
+});

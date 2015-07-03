@@ -10,8 +10,8 @@ class Category extends Model
 
     protected $hidden = ['created_at', 'updated_at'];
 
-    public function items()
+    public function products()
     {
-    	return $this->hasOne('App\Http\Models\Item');
+    	return $this->hasMany('App\Http\Models\Product', 'category_id');
     }
 }
