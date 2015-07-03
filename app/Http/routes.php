@@ -15,6 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/data', function() {
+    $harga = ['200000', '250000', '300000', '350000', '400000', '450000', '500000'];
+    $i = 1;
+    echo $harga[$i - 1];
+});
+
 Route::post('oauth/access_token', function() {
     return Response::json(Authorizer::issueAccessToken());
 });
@@ -22,13 +28,14 @@ Route::post('oauth/access_token', function() {
 Route::group(['prefix' => 'api/v1/service', 'middleware' => 'client'], function () {
     Route::get('brands', ['uses' => 'BrandController@index']);
     Route::get('brands/{id}', ['uses' => 'BrandController@show']);
-    Route::get('brands', ['uses' => 'BrandController@search']);
+    Route::get('search/brands', ['uses' => 'BrandController@search']);
     Route::get('products', ['uses' => 'ProductController@index']);
     Route::get('products/{id}', ['uses' => 'ProductController@show']);
-    Route::get('products', ['uses' => 'ProductController@search']);
+    Route::get('search/products', ['uses' => 'ProductController@search']);
+    Route::get('filter/products', ['uses' => 'ProductController@filter']);
     Route::get('categories', ['uses' => 'CategoryController@index']);
     Route::get('categories/{id}', ['uses' => 'CategoryController@show']);
-    Route::get('categories', ['uses' => 'CategoryController@search']);
+    Route::get('search/categories', ['uses' => 'CategoryController@search']);
 });
 
 Route::group(['prefix' => 'api/v1/service', 'middleware' => ['client', 'oauth']], function () {

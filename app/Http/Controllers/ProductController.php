@@ -76,6 +76,66 @@ class ProductController extends Controller
         }
     }
 
+    public function filter(Request $request)
+    {
+        if ($request->input('brand') && $request->input('category') && $request->input('price') != '') {
+
+            $data = Product::with('brands', 'categories', 'photos', 'sizes')
+                ->whereBrand_id($request->input('brand'))
+                ->whereCategory_id($request->input('category'))
+                ->whereBetween('price_discount', explode('-', $request->input('price')))
+                ->get();
+
+        } elseif ($request->input('brand') && $request->input('category') != '') {
+            
+            $data = Product::with('brands', 'categories', 'photos', 'sizes')
+                ->whereBrand_id($request->input('brand'))
+                ->whereCategory_id($request->input('category'))
+                ->get();
+
+        } elseif ($request->input('brand') && $request->input('price') != '') {
+
+            $data = Product::with('brands', 'categories', 'photos', 'sizes')
+                ->whereBrand_id($request->input('brand'))
+                ->whereBetween('price_discount', explode('-', $request->input('price')))
+                ->get();
+
+        } elseif ($request->input('category') && $request->input('price') != '') {
+
+            $data = Product::with('brands', 'categories', 'photos', 'sizes')
+                ->whereCategory_id($request->input('category'))
+                ->whereBetween('price_discount', explode('-', $request->input('price')))
+                ->get();
+
+        } elseif ($request->input('brand') != '') {
+
+            $data = Product::with('brands', 'categories', 'photos', 'sizes')
+                ->whereBrand_id($request->input('brand'))
+                ->get();
+
+        } elseif ($request->input('category') != '') {
+
+            $data = Product::with('brands', 'categories', 'photos', 'sizes')
+                ->whereCategory_id($request->input('category'))
+                ->get();
+
+        } elseif ($request->input('price') != '') {
+
+            $data = Product::with('brands', 'categories', 'photos', 'sizes')
+                ->whereBetween('price_discount', explode('-', $request->input('price')))
+                ->get();
+
+        }
+
+        if ($data->count() > 0) {
+
+            return Response::json(['error' => false, 'count' => $data->count() ,'data' => ['products' => $data, 'base_url' => url()]]);
+        } else {
+
+            return Response::json(['error' => true, 'message' => 'No data product found']);
+        }
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

@@ -9,14 +9,14 @@ class CategoryTableSeeder extends Seeder {
 		DB::table('categories')->delete();
 
 		$data = array(
-			['1', 'name' => 'Jacket', 'created_at' => new DateTime, 'updated_at' => new DateTime],
-			['2', 'name' => 'Hoodie', 'created_at' => new DateTime, 'updated_at' => new DateTime],
-			['3', 'name' => 'Kaos', 'created_at' => new DateTime, 'updated_at' => new DateTime],
-			['4', 'name' => 'Kemeja', 'created_at' => new DateTime, 'updated_at' => new DateTime],
-			['5', 'name' => 'Short Pants', 'created_at' => new DateTime, 'updated_at' => new DateTime],
-			['6', 'name' => 'Long Pants', 'created_at' => new DateTime, 'updated_at' => new DateTime],
-			['7', 'name' => 'Topi', 'created_at' => new DateTime, 'updated_at' => new DateTime],
-			['8', 'name' => 'Tas', 'created_at' => new DateTime, 'updated_at' => new DateTime],
+			['id' => 1, 'name' => 'Jacket', 'created_at' => new DateTime, 'updated_at' => new DateTime],
+			['id' => 2, 'name' => 'Hoodie', 'created_at' => new DateTime, 'updated_at' => new DateTime],
+			['id' => 3, 'name' => 'Kaos', 'created_at' => new DateTime, 'updated_at' => new DateTime],
+			['id' => 4, 'name' => 'Kemeja', 'created_at' => new DateTime, 'updated_at' => new DateTime],
+			['id' => 5, 'name' => 'Short Pants', 'created_at' => new DateTime, 'updated_at' => new DateTime],
+			['id' => 6, 'name' => 'Long Pants', 'created_at' => new DateTime, 'updated_at' => new DateTime],
+			['id' => 7, 'name' => 'Topi', 'created_at' => new DateTime, 'updated_at' => new DateTime],
+			['id' => 8, 'name' => 'Tas', 'created_at' => new DateTime, 'updated_at' => new DateTime],
 		);
 		DB::table('categories')->insert($data);
 	}

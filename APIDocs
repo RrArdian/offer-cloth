@@ -14,41 +14,41 @@ Get Token
 
 URL prefix : api/v1/service
 All Routes
-=================================================================================================================================
-| scope					| description 					| method  	| request value					| authorization				|
-=================================================================================================================================
-| register        		| Register to promocloth 		| POST 		| email, password, device_id	| yes, client_credential	| done
-| activate       		| Activate new account			| POST		| activation_code				| yes, client_credential	| done
-| resend				| Resend activation code		| POST		| email							| yes, client_credential	| 
-| forget				| Reset password				| POST 		| email							| yes, client_credential	| 
-| user/profil  			| View user profile				| GET		| -								| yes, password				| done
-| user/profil  			| Update user detail profile	| PUT/PATCH	| user_id, fullname, address	| yes, password				| done
-|						|								|			| avatar, zip_code, sex			|							|
-|						|								|			| kabupaten_id					|							|
-| user/update  			| Update basic profil			| PUT/PATCH	| user_id, email, password		| yes, password				|
-| brands				| View all registered brands	| GET		| - 							| no						| done
-| brands/{id}			| View single brands			| GET		| brand_id						| no						| done
-| brands?q={search}		| Search brands					| GET		| string value					| no						| done
-| products				| View all products				| GET		| -								| no						| done
-| products/{id}			| View single products			| GET		| product_id					| no						| done
-| products?q={search}	| Search for products			| GET		| string value					| no						| done
-| products/filter?brand=| Filter product by brand,		| GET		| brand_id						| no						|
-|	{brands}&category=	| category and price			|			| category_id					|							|
-|	{category}&price=	|								|			| price_range					|							|
-|	{price}				|								|			|								|							|
-| categories			| View all categories			| GET		| -								| no						| done
-| categories/{id}		| View single category			| GET		| category_id					| no						| done
-| categories?q={search}	| Search for category			| GET		| string value					| no						| done
-| orders 				| Get user product order 		| GET		| -								| yes, password				|
-| orders 				| Order product 				| POST		| size_product_id, brand_id,	| yes, password				|
-|						|								| 			| customer_id					|							|
-| orders/{id} 			| Get user detail product order | GET		| cart_id						| yes, password				|
-| orders/{id} 			| Update cart order 			| PUT/PATCH	| cart_id						| yes, password				|
-| orders/{id} 			| Delete single cart order 		| GET		| cart_id						| yes, password				|
-| orders/empty 			| Empty cart order 				| GET		| cart_id						| yes, password				|
-| checkout				| User checkout order 			| POST 		| order_id						| yes, password				|
-| orderlist				| Get user order history		| GET 		| customer_id					| no						|
-| rate					| User rate product 			| POSTs		| user_id, product_id, rate		| yes, password				|
-| follow				| User follow brand 			| POST		| cutomer_id, brand_id			| yes, password				|	
-| unfollow				| User unfollow brand 			| POST		| cutomer_id, brand_id			| yes, password				|
-=================================================================================================================================
+=========================================================================================================================================
+| scope							| description 					| method  	| request value					| authorization				|
+=========================================================================================================================================
+| register        				| Register to promocloth 		| POST 		| email, password, device_id	| yes, client_credential	| done
+| activate       				| Activate new account			| POST		| activation_code				| yes, client_credential	| done
+| resend						| Resend activation code		| POST		| email							| yes, client_credential	| 
+| forget						| Reset password				| POST 		| email							| yes, client_credential	| 
+| user/profil  					| View user profile				| GET		| -								| yes, password				| done
+| user/profil  					| Update user detail profile	| PUT/PATCH	| user_id, fullname, address	| yes, password				| done
+|								|								|			| avatar, zip_code, sex			|							|
+|								|								|			| kabupaten_id					|							|
+| user/update  					| Update basic profil			| PUT/PATCH	| user_id, email, password		| yes, password				|
+| brands						| View all registered brands	| GET		| - 							| no						| done
+| brands/{id}					| View single brands			| GET		| brand_id						| no						| done
+| search/brands?q={search}		| Search brands					| GET		| string value					| no						| done
+| products						| View all products				| GET		| -								| no						| done
+| products/{id}					| View single products			| GET		| product_id					| no						| done
+| search/products?q={search}	| Search for products			| GET		| string value					| no						| done
+| filter/products?brand=		| Filter product by brand,		| GET		| brand_id						| no						|
+|	{brands}&category=			| category and price			|			| category_id					|							|
+|	{category}&price=			|								|			| price_range					|							|
+|	{price}						|								|			|								|							|
+| categories					| View all categories			| GET		| -								| no						| done
+| categories/{id}				| View single category			| GET		| category_id					| no						| done
+| search/categories?q={search}	| Search for category			| GET		| string value					| no						| done
+| orders 						| Get user product order 		| GET		| -								| yes, password				|
+| orders 						| Order product 				| POST		| size_product_id, brand_id,	| yes, password				|
+|								|								| 			| customer_id					|							|
+| orders/{id} 					| Get user detail product order | GET		| cart_id						| yes, password				|
+| orders/{id} 					| Update cart order 			| PUT/PATCH	| cart_id						| yes, password				|
+| orders/{id} 					| Delete single cart order 		| GET		| cart_id						| yes, password				|
+| orders/empty 					| Empty cart order 				| GET		| cart_id						| yes, password				|
+| checkout						| User checkout order 			| POST 		| order_id						| yes, password				|
+| orderlist						| Get user order history		| GET 		| customer_id					| no						|
+| rate							| User rate product 			| POSTs		| user_id, product_id, rate		| yes, password				|
+| follow						| User follow brand 			| POST		| cutomer_id, brand_id			| yes, password				|	
+| unfollow						| User unfollow brand 			| POST		| cutomer_id, brand_id			| yes, password				|
+=========================================================================================================================================
