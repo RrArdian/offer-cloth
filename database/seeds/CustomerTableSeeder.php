@@ -9,15 +9,15 @@ class CustomerTableSeeder extends Seeder {
 	
 	public function run () {
 
-		$user = new User;
-		$user->email = 'amirulbaharazis@gmail.com';
-		$user->password = Hash::make('amirulbaharazis');
-		$user->status = 'active';
-		$user->save();
+        $user = new User;
+        $user->email = 'amirulbaharazis@gmail.com';
+        $user->password = Hash::make('amirulbaharazis');
+        $user->status = 'active';
+        $user->save();
 
-		$user_id = User::max('id');
+        $user_id = User::max('id');
 
-		$role = User::find($user_id);
+        $role = User::find($user_id);
         $role->assignRole(2);
 
         $customer = new Customer;
@@ -30,14 +30,14 @@ class CustomerTableSeeder extends Seeder {
         $customer->save();
 
         $user = new User;
-		$user->email = 'mrizqihanafi@gmail.com';
-		$user->password = Hash::make('mrizqihanafi');
-		$user->status = 'active';
-		$user->save();
+        $user->email = 'mrizqihanafi@gmail.com';
+        $user->password = Hash::make('mrizqihanafi');
+        $user->status = 'active';
+        $user->save();
 
-		$user_id = User::max('id');
+        $user_id = User::max('id');
 
-		$role = User::find($user_id);
+        $role = User::find($user_id);
         $role->assignRole(2);
 
         $customer = new Customer;
@@ -50,14 +50,14 @@ class CustomerTableSeeder extends Seeder {
         $customer->save();
 
         $user = new User;
-		$user->email = 'rrardian@gmail.com';
-		$user->password = Hash::make('rrardian');
-		$user->status = 'active';
-		$user->save();
+        $user->email = 'rrardian@gmail.com';
+        $user->password = Hash::make('rrardian');
+        $user->status = 'active';
+        $user->save();
 
-		$user_id = User::max('id');
+        $user_id = User::max('id');
 
-		$role = User::find($user_id);
+        $role = User::find($user_id);
         $role->assignRole(2);
 
         $customer = new Customer;
@@ -68,6 +68,6 @@ class CustomerTableSeeder extends Seeder {
         $customer->sex = 'Laki-laki';
         $customer->phone = '085729086154';
         $customer->save();
-	}
+    }
 
 }

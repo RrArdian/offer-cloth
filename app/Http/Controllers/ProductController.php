@@ -125,6 +125,8 @@ class ProductController extends Controller
                 ->whereBetween('price_discount', explode('-', $request->input('price')))
                 ->get();
 
+        } else {
+            $data = Product::with('brands', 'categories', 'photos', 'sizes')->get();
         }
 
         if ($data->count() > 0) {

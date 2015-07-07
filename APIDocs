@@ -8,7 +8,7 @@ Get Token
 =================================================================================================================================================
 | scope					| description 						  	| method  	| grant type 		| request body									|
 =================================================================================================================================================
-| oauth/access_token	| Get token for request authorization	| POST 		| client_credential	| client_id, client_secret						|
+| oauth/access_token	| Get token for request authorization	| POST 		| client_credentials| client_id, client_secret						|
 |						|										|			| password			| username, password, client_id, client_secret	|
 =================================================================================================================================================
 
@@ -17,10 +17,10 @@ All Routes
 =========================================================================================================================================
 | scope							| description 					| method  	| request value					| authorization				|
 =========================================================================================================================================
-| register        				| Register to promocloth 		| POST 		| email, password, device_id	| yes, client_credential	| done
-| activate       				| Activate new account			| POST		| activation_code				| yes, client_credential	| done
-| resend						| Resend activation code		| POST		| email							| yes, client_credential	| 
-| forget						| Reset password				| POST 		| email							| yes, client_credential	| 
+| register        				| Register to promocloth 		| POST 		| email, password, device_id	| yes, client_credentials	| done
+| activate       				| Activate new account			| GET		| email, code					| yes, client_credentials	| done
+| resend						| Resend activation code		| POST		| email							| yes, client_credentials	| 
+| forget						| Reset password				| POST 		| email							| yes, client_credentials	| 
 | user/profil  					| View user profile				| GET		| -								| yes, password				| done
 | user/profil  					| Update user detail profile	| PUT/PATCH	| user_id, fullname, address	| yes, password				| done
 |								|								|			| avatar, zip_code, sex			|							|
@@ -32,7 +32,7 @@ All Routes
 | products						| View all products				| GET		| -								| no						| done
 | products/{id}					| View single products			| GET		| product_id					| no						| done
 | search/products?q={search}	| Search for products			| GET		| string value					| no						| done
-| filter/products?brand=		| Filter product by brand,		| GET		| brand_id						| no						|
+| filter/products?brand=		| Filter product by brand,		| GET		| brand_id						| no						| done
 |	{brands}&category=			| category and price			|			| category_id					|							|
 |	{category}&price=			|								|			| price_range					|							|
 |	{price}						|								|			|								|							|

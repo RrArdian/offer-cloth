@@ -65,10 +65,11 @@ class UserController extends Controller
             $role->assignRole('customer');
 
             $data = ['name' => $request->input('email'), 'code' => $code ];
+            $receiver = $request->input('email');
 
-            Mail::send('hello', $data, function ($mail)
+            Mail::send('hello', $data, function ($mail) use ($receiver)
             {
-                $mail->to($request->input('email'), 'Me');
+                $mail->to($receiver, 'Me');
 
                 $mail->subject('Silakan aktivasi akun anda');
             });
@@ -86,11 +87,11 @@ class UserController extends Controller
 
     public function activate(Request $request)
     {
-        $is_exist = User::whereActivation_code($request->input('code'))->pluck('id');
+        $is_exist = User::whereEmail($request->input('email'))->whereActivation_code($request->input('code'))->pluck('id');
 
         if (empty($is_exist)) {
 
-            Response::json(['error' => true, 'message' => 'Code is invalid']);
+            return Response::json(['error' => true, 'message' => 'Code is invalid']);
         } else {
             $user = User::find($is_exist);
             $user->activation_code = '';

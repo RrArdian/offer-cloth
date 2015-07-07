@@ -72,6 +72,7 @@ class SandboxSeeder extends Seeder {
 		$deskripsi = ['cocok untuk bepergian ke mana-mana', 'cocok bagi anak muda yang mencari jati diri', 'dipakai untuk segala momen', 'mencerahkan penampilanmu'];
 		$harga = ['200000', '250000', '300000', '350000', '400000', '450000', '500000'];
 		$gambar = ['jacket_distro.jpg', 'hoodie_distro.jpg', 'kaos_distro.jpg', 'kemeja_distro.jpg', 'short_pants_distro.jpg', 'long_pants_distro.png', 'topi_distro.jpg', 'tas_distro.jpg'];
+		$ukuran = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
 
 		$product = new Product;
 		$product->brand_id = Brand::max('id');
@@ -92,5 +93,11 @@ class SandboxSeeder extends Seeder {
 		$photo->photo_name = $gambar[$i - 1];
 		$photo->photo_url = 'assets/sandbox/'. $gambar[$i - 1];
 		$photo->save();
+
+		$size = new Size;
+		$size->product_id = Product::max('id');
+		$size->name = $ukuran[rand(1, count($ukuran) - 1)];
+		$size->stock = rand(1, 3);
+		$size->save();
 	}
 }

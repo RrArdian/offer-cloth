@@ -34,6 +34,8 @@ Route::group(['prefix' => 'api/v1/service', 'middleware' => 'client'], function 
 
 Route::group(['prefix' => 'api/v1/service', 'middleware' => ['client', 'oauth']], function () {
     Route::post('register', ['uses' => 'UserController@store']);
-    Route::post('activate', ['uses' => 'UserController@activate']);
+    Route::get('activate', ['uses' => 'UserController@activate']);
     Route::get('user/profil', ['uses' => 'UserController@profil']);
+    Route::get('cart', ['uses' => 'CartController@index']);
+    Route::get('empty/cart', ['uses' => 'CartController@emptycart']);
 });
