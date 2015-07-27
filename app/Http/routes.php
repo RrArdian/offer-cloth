@@ -15,6 +15,27 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('orderlist', function()
+{
+    $data = [['id' => 2, 'name' => 'Jacket Purple Vintage Temporary', 'brand' => 'Kawanku Clothing', 'qty' => 2, 'price' => '240000', 'size' => 'XL', 'status' => 'Dipesan langsung',
+            "photos" => [
+                "id" => 2,
+                "product_id" => "2",
+                "caption" => "Jacket",
+                "photo_name" => "jacket_distro.jpg",
+                "photo_url" => "assets/sandbox/jacket_distro.jpg"]],
+            ['id' => 3, 'name' => 'Hoodie Black Calm Gawl', 'brand' => 'Kawanku Clothing', 'qty' => 2, 'price' => '140000', 'size' => 'M', 'status' => 'Dipesan langsung',
+        "photos" => [
+            "id" => 12,
+            "product_id" => "12",
+            "caption" => "Hoodie",
+            "photo_name" => "hoodie_distro.jpg",
+            "photo_url" => "assets/sandbox/hoodie_distro.jpg"
+        ]]];
+
+    return Response::json(['error' => 'false', 'data' => ['cart' => $data, 'items_count' => '4', 'total' => '760000' ]]);
+});
+
 Route::post('oauth/access_token', function() {
     return Response::json(Authorizer::issueAccessToken());
 });

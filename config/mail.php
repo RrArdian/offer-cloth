@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'no-reply@promocloth.com', 'name' => 'Promocloth Apps'],
+    'from' => ['address' => 'no-reply@promocloth.com', 'name' => 'OfferCloth Apps'],
 
     /*
     |--------------------------------------------------------------------------
